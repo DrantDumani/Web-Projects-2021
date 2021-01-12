@@ -1,0 +1,3 @@
+Desktop (wide screen displays): width = 400
+
+Phone: width = 150

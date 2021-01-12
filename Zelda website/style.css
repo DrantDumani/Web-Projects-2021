@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+.main {
+  background-color: yellow;
+  width: 100vw;
+  height: 100vh;
+}
+
+.ham {
+  display: block;
+  background-color: black;
+  width: 20px;
+  height: 4px;
+  margin: 2px 0;
+}
+
+button {
+  border: none;
+  background-color: inherit;
+}
+
+#menu {
+  z-index: 2;
+  display: block;
+  position: absolute;
+  left: -40%;
+  width: 40%;
+  height: 100vh;
+  background-color: cyan;
+  border-right: 2px solid black;
+  transition: left 0.5s ease;
+}
+
+.menu-filter {
+  z-index: 1;
+  width: 100vw;
+  height: 0;
+  position: absolute;
+  background-color: black;
+  opacity: 0%;
+  transition: opacity 0.5s ease;
+}
