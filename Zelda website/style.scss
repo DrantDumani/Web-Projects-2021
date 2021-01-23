@@ -9,6 +9,7 @@ html, body {
 	height: 100%;
 	background-color: #4b2a2a;
 	color: #fff;
+	width: 100%;
 }
 
 #header {
@@ -50,7 +51,20 @@ html, body {
 
 		ul {
 			margin-top: 50px;
+      list-style: none;
 		}
+    
+    .nav-link {
+      text-decoration: none;
+      color: #fff;
+      font-size: 24px;
+      line-height: 2.5em;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    
 	}
 
 	.hamburger-grp {
@@ -92,54 +106,113 @@ html, body {
 
 #main {
 		width: 100%;
-		min-height: 100vh;
-		overflow: auto;
+		overflow: hidden;
 		scrollbar-width: none;
-		scroll-snap-type: x mandatory;
+		scroll-behavior: smooth;
 		display: flex;
+    flex-direction: column;
 		$time: 0.5s;
 		$top-dist: 55%;
 
 		&::webkit-scrollbar {
 			display: none;
 		}
+  
+  #hist-container {
+    width: 100%;
+    display: flex;
+    overflow: auto;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    
+    &::webkit-scrollbar {
+      display: none;
+    }
+  }
 
 		.triforce {
-			width: 100%;
-			min-height: 100vh;
+			display: grid;
+			grid-template-rows: 100px 1fr 5vh 1fr;
+      // grid-template-rows: 100px 400px 50px 400px;
+			grid-template-columns: 1fr 10% 1fr;
+			// grid-row-gap: 5em;
+			width: 100vw;
 			flex: 0 0 auto;
 			position: relative;
 			text-align: center;
+			scrollbar-width: none;
 			scroll-snap-align: center;
+      // transition: all 1s ease;
+
+			h2, .sctn-header {
+				grid-area: 1 / 1 / 2 / 4;
+			}
+
+			.sctn-header {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
 		}
 
 		.img-container {
-			position: absolute;
-			transform: translateX(-50%);
+			overflow: hidden;
+			transition: all $time ease;
+		}
+
+		.t-piece {
+			height: auto;
 			transition: all $time ease;
 		}
 
 		.power {
-			top: 10%;
-			left: 50%;
+			grid-area: 2 / 1 / 3 / 4;
+			transition: all $time ease;
 		}
 
 		.wisdom {
-			top: $top-dist;
-			left: 25%;
+			text-align: right;
+			grid-area: 4 / 1 / 5 / 2;
 		}
 
 		.courage {
-			top: $top-dist;
-			left: 75%;
+			text-align: left;
+			grid-area: 4 / 3 / 5 / 4;
+		}
+
+		.selected {
+			grid-area: 3 / 1 / 4 / 4;
+			text-align: center;
+		}
+
+		.selected-grid {
+			grid-template-rows: 100px 0px 1fr 0px;
+			grid-template-columns: 1fr 10% 1fr;
+		}
+
+		.unselected {
+			opacity: 0%;
+			width: 0;
+			height: 0;
 		}
 
 		.lore-text {
 			font-size: 0;
 			opacity: 0%;
 			transition: opacity $time ease;
+			padding: 0 5vw;
 		}
 
+		.selected-lore {
+			font-size: 30px;
+			opacity: 100%;
+		}
+  
+    .btn-container {
+      text-align: center;
+    }
+  
 		.tri-btn {
 			border: none;
 			background-color: transparent;
@@ -147,35 +220,30 @@ html, body {
 			cursor: pointer;
 		}
 
-		.triforce-nav {
-			position: fixed;
-			z-index: 2;
-			top: 50%;
-			transform: translateY(-50%);
+		.triforce-nav, .default, .switch-region {
+			position: relative;
 		    display: inline-block;
 		    border: none;
 		    padding: 1rem 2rem;
-		    margin: 0;
-		    text-decoration: none;
+		    margin: 0.5em 1em;
 		    background: #14529c;
 		    color: #ffffff;
 		    font-family: inherit;
 		    font-size: 1.5rem;
 		    cursor: pointer;
 		    text-align: center;
-		    transition: background 250ms ease-in-out, 
-		                transform 150ms ease;
+		    transition: opacity 0.5s ease-in-out;
 		    -webkit-appearance: none;
 		    -moz-appearance: none;
 		}
 
-		.prev {
-			left: 10%;
+		.default {
+      		display: none;
 		}
-
-		.next {
-			right: 10%;
-		}
+  
+	    .dft-clickable {
+	      display: inline-block;
+	    }
 
 		.prev::before {
 			position: absolute;
@@ -205,7 +273,7 @@ html, body {
 	}
 
 	#footer {
-		padding: 0 2em;
+		padding: 2em;
 		text-align: center;
 
 		.foot-flex {
@@ -223,11 +291,6 @@ html, body {
 	}
 
 	@media (max-width: 451px) {
-		.t-piece {
-			width: 150px;
-			height: auto;
-		}
-
 		#header {
 			$menu-width: 100%;
 
@@ -235,19 +298,17 @@ html, body {
 				width: $menu-width;
 				left: -$menu-width;
 				text-align: center;
+
+				ul {
+					padding: 0;
+				}
 			}
 		}
 
 		#main {
-			$top-dist: 35%;
-			min-height: 100vh;
-
-			.wisdom, .courage {
-				top: $top-dist;
+			.t-piece {
+				width: 150px;
+				height: auto;
 			}
-		}
-
-		#footer {
-			margin-top: -10em;
 		}
 	}

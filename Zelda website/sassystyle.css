@@ -7,7 +7,8 @@ html, body {
   padding: 0;
   height: 100%;
   background-color: #4b2a2a;
-  color: #fff; }
+  color: #fff;
+  width: 100%; }
 
 #header #menu-toggle {
   display: none;
@@ -31,7 +32,15 @@ html, body {
   border-right: 3px solid black;
   transition: left 0.5s ease; }
   #header #nav ul {
-    margin-top: 50px; }
+    margin-top: 50px;
+    list-style: none; }
+  #header #nav .nav-link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
+    line-height: 2.5em; }
+    #header #nav .nav-link:hover {
+      text-decoration: underline; }
 #header .hamburger-grp {
   position: fixed;
   top: 4px;
@@ -63,65 +72,97 @@ html, body {
 
 #main {
   width: 100%;
-  min-height: 100vh;
-  overflow: auto;
+  overflow: hidden;
   scrollbar-width: none;
-  scroll-snap-type: x mandatory;
-  display: flex; }
+  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column; }
   #main::webkit-scrollbar {
     display: none; }
-  #main .triforce {
+  #main #hist-container {
     width: 100%;
-    min-height: 100vh;
+    display: flex;
+    overflow: auto;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth; }
+    #main #hist-container::webkit-scrollbar {
+      display: none; }
+  #main .triforce {
+    display: grid;
+    grid-template-rows: 100px 1fr 5vh 1fr;
+    grid-template-columns: 1fr 10% 1fr;
+    width: 100vw;
     flex: 0 0 auto;
     position: relative;
     text-align: center;
+    scrollbar-width: none;
     scroll-snap-align: center; }
+    #main .triforce h2, #main .triforce .sctn-header {
+      grid-area: 1 / 1 / 2 / 4; }
+    #main .triforce .sctn-header {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
   #main .img-container, #main #footer .cntct-container, #footer #main .cntct-container {
-    position: absolute;
-    transform: translateX(-50%);
+    overflow: hidden;
+    transition: all 0.5s ease; }
+  #main .t-piece {
+    height: auto;
     transition: all 0.5s ease; }
   #main .power {
-    top: 10%;
-    left: 50%; }
+    grid-area: 2 / 1 / 3 / 4;
+    transition: all 0.5s ease; }
   #main .wisdom {
-    top: 55%;
-    left: 25%; }
+    text-align: right;
+    grid-area: 4 / 1 / 5 / 2; }
   #main .courage {
-    top: 55%;
-    left: 75%; }
+    text-align: left;
+    grid-area: 4 / 3 / 5 / 4; }
+  #main .selected {
+    grid-area: 3 / 1 / 4 / 4;
+    text-align: center; }
+  #main .selected-grid {
+    grid-template-rows: 100px 0px 1fr 0px;
+    grid-template-columns: 1fr 10% 1fr; }
+  #main .unselected {
+    opacity: 0%;
+    width: 0;
+    height: 0; }
   #main .lore-text {
     font-size: 0;
     opacity: 0%;
-    transition: opacity 0.5s ease; }
+    transition: opacity 0.5s ease;
+    padding: 0 5vw; }
+  #main .selected-lore {
+    font-size: 30px;
+    opacity: 100%; }
+  #main .btn-container {
+    text-align: center; }
   #main .tri-btn {
     border: none;
     background-color: transparent;
     font-family: inherit;
     cursor: pointer; }
-  #main .triforce-nav {
-    position: fixed;
-    z-index: 2;
-    top: 50%;
-    transform: translateY(-50%);
+  #main .triforce-nav, #main .default, #main .switch-region {
+    position: relative;
     display: inline-block;
     border: none;
     padding: 1rem 2rem;
-    margin: 0;
-    text-decoration: none;
+    margin: 0.5em 1em;
     background: #14529c;
     color: #ffffff;
     font-family: inherit;
     font-size: 1.5rem;
     cursor: pointer;
     text-align: center;
-    transition: background 250ms ease-in-out, transform 150ms ease;
+    transition: opacity 0.5s ease-in-out;
     -webkit-appearance: none;
     -moz-appearance: none; }
-  #main .prev {
-    left: 10%; }
-  #main .next {
-    right: 10%; }
+  #main .default {
+    display: none; }
+  #main .dft-clickable {
+    display: inline-block; }
   #main .prev::before {
     position: absolute;
     top: 50%;
@@ -146,7 +187,7 @@ html, body {
     border-left: 10px solid #fff; }
 
 #footer {
-  padding: 0 2em;
+  padding: 2em;
   text-align: center; }
   #footer .foot-flex {
     display: flex;
@@ -155,21 +196,15 @@ html, body {
       padding: 0 8px; }
 
 @media (max-width: 451px) {
-  .t-piece {
-    width: 150px;
-    height: auto; }
-
   #header #nav {
     width: 100%;
     left: -100%;
     text-align: center; }
+    #header #nav ul {
+      padding: 0; }
 
-  #main {
-    min-height: 100vh; }
-    #main .wisdom, #main .courage {
-      top: 35%; }
-
-  #footer {
-    margin-top: -10em; } }
+  #main .t-piece {
+    width: 150px;
+    height: auto; } }
 
 /*# sourceMappingURL=sassystyle.css.map */
