@@ -2,6 +2,10 @@ let rghtBtn = document.querySelector(".next");
 let lftBtn = document.querySelector(".prev");
 let defBtn = document.querySelector(".default");
 
+let regionBtns = document.querySelectorAll(".switch-region")
+for (let btn of regionBtns)
+	btn.addEventListener("click", changeRegion)
+
 let pieces = document.querySelectorAll(".tri-btn")
 for (let piece of pieces)
   piece.addEventListener("click", hilightPiece);
@@ -13,11 +17,13 @@ rghtBtn.addEventListener("click", right);
 lftBtn.addEventListener("click", left);
 defBtn.addEventListener("click",restoreDefault);
 
+
+
 function navSct(dir){
   let mod = dir;
   return function(e){
     let sectWidth = document.querySelector(".triforce").offsetWidth;
-    let sectNum = document.querySelectorAll(".triforce").length;
+    let sectNum = document.querySelectorAll(".triforce").length - 1;
     
     let totalWidth = sectWidth * sectNum * mod;
     let edge = totalWidth > 0 ? totalWidth : 0;
@@ -36,7 +42,6 @@ function hilightPiece(e){
 	console.log(sectionPieces);
 	let chosenClass = container.classList;
   let dftBtn = document.querySelector(".default");
-  //document.write(dftBtn)
 	for (let piece of sectionPieces){
 		if (piece.classList === chosenClass){
 			let lore = piece.querySelector(".lore-text");
@@ -58,4 +63,15 @@ function restoreDefault(){
     piece.parentNode.parentNode.className = piece.parentNode.parentNode.className.replace("selected-grid", "");
   }
   this.className = this.className.replace("dft-clickable", "");
+}
+
+function changeRegion(){
+	let hyrule = document.querySelector("#ALBW");
+	let lorule = document.querySelector("#ALBW-L");
+
+	hyrule.classList.toggle("active-region");
+	hyrule.classList.toggle("inactive-region");
+
+	lorule.classList.toggle("inactive-region");
+	lorule.classList.toggle("active.region");
 }

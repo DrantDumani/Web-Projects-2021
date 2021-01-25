@@ -3,6 +3,7 @@
 
 html, body {
   font-family: 'Pirata One', cursive;
+  -ms-overflow-style: none;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -73,8 +74,7 @@ html, body {
 #main {
   width: 100%;
   overflow: hidden;
-  scrollbar-width: none;
-  scroll-behavior: smooth;
+  -ms-overflow-style: none;
   display: flex;
   flex-direction: column; }
   #main::webkit-scrollbar {
@@ -85,7 +85,8 @@ html, body {
     overflow: auto;
     scrollbar-width: none;
     scroll-snap-type: x mandatory;
-    scroll-behavior: smooth; }
+    scroll-behavior: smooth;
+    -ms-overflow-style: none; }
     #main #hist-container::webkit-scrollbar {
       display: none; }
   #main .triforce {
@@ -97,22 +98,31 @@ html, body {
     position: relative;
     text-align: center;
     scrollbar-width: none;
-    scroll-snap-align: center; }
+    scroll-snap-align: center;
+    transition: opacity 1s ease, transform 1s ease; }
     #main .triforce h2, #main .triforce .sctn-header {
       grid-area: 1 / 1 / 2 / 4; }
     #main .triforce .sctn-header {
       display: flex;
       justify-content: center;
       align-items: center; }
+  #main .inactive-region {
+    visibility: collapse;
+    opacity: 0;
+    transform: rotate(0.5turn); }
+  #main .active-region {
+    opacity: 100%;
+    transform: rotate(1turn); }
   #main .img-container, #main #footer .cntct-container, #footer #main .cntct-container {
     overflow: hidden;
     transition: all 0.5s ease; }
   #main .t-piece {
     height: auto;
     transition: all 0.5s ease; }
+    #main .t-piece:hover {
+      filter: drop-shadow(0 0 0.5rem #fff); }
   #main .power {
-    grid-area: 2 / 1 / 3 / 4;
-    transition: all 0.5s ease; }
+    grid-area: 2 / 1 / 3 / 4; }
   #main .wisdom {
     text-align: right;
     grid-area: 4 / 1 / 5 / 2; }
@@ -185,6 +195,8 @@ html, body {
     border-top: 10px solid transparent;
     border-bottom: 10px solid transparent;
     border-left: 10px solid #fff; }
+  #main button:active {
+    border: 1px solid #f08d23; }
 
 #footer {
   padding: 2em;
