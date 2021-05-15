@@ -1,53 +1,52 @@
 import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import reportWebVitals from './reportWebVitals';
 
 const soundBank = [
 	{
 		key: "Q",
-		link: "sfx/1UP.wav",
-		name: "1UP",
+		link: "https://sampleswap.org/samples-ghost/DRUMS%20(FULL%20KITS)/DRUM%20MACHINES/Hammond%20Drum%20Machine/16[kb]ham-bd-01.wav.mp3",
+		name: "Hammond",
 	},
 	{
 		key: "W",
-		link: "sfx/ATTACK.wav",
-		name: "ATTACK",
+		link: "https://sampleswap.org/samples-ghost/DRUMS%20(FULL%20KITS)/DRUM%20MACHINES/80s%20Drum%20Machine/87[kb]80s-CRASH1.wav.mp3",
+		name: "Crash",
 	},
 	{
 		key: "E",
-		link: "sfx/ATTACK2.wav",
-		name: "ATTACK2",
+		link: "https://sampleswap.org/samples-ghost/DRUMS%20(FULL%20KITS)/DRUM%20MACHINES/Pearl%20SC-40%20Kicks/35[kb]SC40BD010.wav.mp3",
+		name: "Pearl SC-40",
 	},
 	{
 		key: "A",
-		link: "sfx/ATTACK3.wav",
-		name: "ATTACK3",
+		link: "https://sampleswap.org/samples-ghost/DRUMS%20(FULL%20KITS)/DRUM%20MACHINES/Jomox%20MBrane%2011/287[kb]jmox-mbrane-r03a.wav.mp3",
+		name: "MBrane 11",
 	},
 	{
 		key: "S",
-		link: "sfx/ATTACK4.wav",
-		name: "ATTACK4",
+		link: "https://sampleswap.org/samples-ghost/DRUMS%20(FULL%20KITS)/DRUM%20MACHINES/Psycore%20Kit/72[kb]psycore-kick-snare.wav.mp3",
+		name: "Psycore",
 	},
 	{
 		key: "D",
-		link: "sfx/ATTACK5.wav",
-		name: "ATTACK5"
+		link: "https://sampleswap.org/samples-ghost/DRUMS%20(FULL%20KITS)/DRUM%20MACHINES/EMU%20SP%2012%20Kult/25[kb]sp12-02.wav.mp3",
+		name: "EMU SP"
 	},
 	{
 		key: "Z",
-		link: "sfx/BONUS.wav",
-		name: "BONUS"
+		link: "https://sampleswap.org/samples-ghost/DRUMS%20(FULL%20KITS)/DRUM%20MACHINES/Wersimat%2024/57[kb]wersi-bdhh2.wav.mp3",
+		name: "Wersimat"
 	},
 	{
 		key: "X",
-		link: "sfx/BONUS2.wav",
-		name: "BONUS2"
+		link: "https://sampleswap.org/samples-ghost/DRUMS%20(FULL%20KITS)/DRUM%20MACHINES/Wersimat%2024/14[kb]wersi-cow2.wav.mp3",
+		name: "Wersimat2"
 	},
 	{
 		key: "C",
-		link: "sfx/BONUS3.wav",
-		name: "BONUS3"
+		link: "https://sampleswap.org/samples-ghost/DRUMS%20(FULL%20KITS)/DRUM%20MACHINES/Alesis%20HR16/17[kb]BELL1.wav.mp3",
+		name: "Alesis"
 	}
 ];
 
@@ -74,7 +73,9 @@ const Container = () => {
 	}, []);
 
  	const playPlease = (event) => {
- 		event.target.querySelector("audio").play();
+ 		let audio = event.target.querySelector(".clip");
+ 		audio.currentTime = 0;
+ 		audio.play()
  		setTitle(event.target.id)
  	}
 
@@ -83,7 +84,7 @@ const Container = () => {
  	}
 
  	useEffect(() => {
-               let sounds = document.querySelectorAll("audio");
+               let sounds = document.querySelectorAll(".clip");
                sounds.forEach(audio => audio.volume = volume)
                setTitle(`Volume: ${(volume*100).toFixed()}%`)
           }, [volume])
@@ -95,7 +96,7 @@ const Container = () => {
  			</button>)})
 
  	return (<div id="display">
- 		<h1 id="title">Touhou Sound Effects</h1>
+ 		<h1 id="title">Drum Sound Effects</h1>
  		<main id="audio-box">
 	 		<div id="noise">{audio}</div>
 	 		<div id="vol-and-info">
@@ -121,5 +122,3 @@ ReactDOM.render(
     <Container/>,
   document.getElementById('drum-machine')
 );
-
-reportWebVitals();

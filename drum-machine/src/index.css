@@ -1,18 +1,3 @@
-/*body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-*/
-
 html, body {
 	margin: 0 auto;
 	font-family: 'Girassol', cursive;
@@ -59,6 +44,7 @@ h1 {
 	padding: 5vh 5vw;
 	border-radius: 8px;
 	background-color: #ffdcdc;
+	border: 3px solid #ebcbcb;
 	color: #300000;
 	font-family: inherit;
 	font-size: 2.0em;
@@ -71,6 +57,7 @@ h1 {
 
 button:active, .active {
 	background-color: pink;
+	border-color: #f4f4f4;
 }
 
 footer {
