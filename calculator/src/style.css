@@ -1,0 +1,122 @@
+body {
+  margin: 0 auto;
+  box-sizing: border-box;
+  background-color: #f2edc5; }
+
+#root {
+  font-family: 'Orbitron', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+#title, #footer {
+  text-align: center; }
+
+#footer {
+  font-size: 1.4em; }
+
+#calculator {
+  background-color: #404678;
+  border: 7px solid #404678;
+  color: #fff;
+  margin: 0px 3vw; }
+
+#zero {
+  grid-area: zero; }
+
+#one {
+  grid-area: one; }
+
+#two {
+  grid-area: two; }
+
+#three {
+  grid-area: three; }
+
+#four {
+  grid-area: four; }
+
+#five {
+  grid-area: five; }
+
+#six {
+  grid-area: six; }
+
+#seven {
+  grid-area: seven; }
+
+#eight {
+  grid-area: eight; }
+
+#nine {
+  grid-area: nine; }
+
+#add {
+  grid-area: add; }
+
+#subtract {
+  grid-area: subtract; }
+
+#multiply {
+  grid-area: multiply; }
+
+#divide {
+  grid-area: divide; }
+
+#decimal {
+  grid-area: decimal; }
+
+#equals {
+  grid-area: equals; }
+
+#clear {
+  grid-area: clear; }
+
+#user-interface {
+  display: grid;
+  grid-template-areas: "clear clear clear divide" "seven eight nine multiply" "four five six subtract" "one two three add" "zero zero decimal equals";
+  font-family: 'Orbitron', sans-serif; }
+
+button {
+  background-color: #ced3fe;
+  border: 1px solid #404678;
+  padding: 20px;
+  font-size: 3em;
+  font-family: inherit; }
+
+button:hover {
+  background-color: #e3e6ff;
+  border: 1px solid #fff; }
+
+#equals {
+  background-color: #fe768a; }
+
+#equals:hover {
+  background-color: #ffa3b1; }
+
+#add, #subtract, #divide, #multiply {
+  background-color: #70c64c; }
+
+#add:hover, #subtract:hover, #divide:hover, #multiply:hover {
+  background-color: #b4ff95; }
+
+#clear {
+  background-color: #ddd5df; }
+
+#clear:hover {
+  background-color: #f7eef9; }
+
+#display, #inputs {
+  text-align: right; }
+
+#display {
+  margin: 0;
+  font-size: 3.5em; }
+
+#inputs {
+  height: 18px;
+  font-size: 1.3em;
+  margin: 5px 0; }
+
+/*# sourceMappingURL=style.css.map */
