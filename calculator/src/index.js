@@ -118,9 +118,4 @@ const Footer = () => {
 }
 
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Calculator />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+ReactDOM.render(<Calculator />, document.getElementById('root'));
