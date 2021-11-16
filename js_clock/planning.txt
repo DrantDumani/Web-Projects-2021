@@ -1,0 +1,8 @@
+JS Clock
+---
+
+Component Tree structure
+---
+The main container component conditionally displays one of two things. By default, it displays the session timer. When the session timer is up, it displays the break timer. When the break timer is up, it displays the session timer again. And it repeats.
+
+The container state needs to contain both timers in its state. The child that renders the timer. The container will also need to remember which timer it's currently using. It also wants a way to track the timers so that it can update them via buttons later.
