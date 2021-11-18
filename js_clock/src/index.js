@@ -1,4 +1,5 @@
 import React, {useReducer, useEffect} from 'react';
+import {Helmet} from 'react-helmet'
 import useInterval from "./custom_hooks/useInterval.js"
 import ReactDOM from 'react-dom';
 import './index.css';
@@ -83,6 +84,9 @@ const Container = () => {
 
   return (
   <div id="content-wrapper">
+    <Helmet>
+      <title>{state.isCountdown ? `(${state.currentTimer[0].toString().padStart(2,0)}:${state.currentTimer[1].toString().padStart(2,0)}) Majora's Mask Clock` : `Majora's Mask Clock`}</title>
+    </Helmet>
     <h1 id="title">Majora's Mask Timer</h1>
     <main>
       <Clock title={state.isSession ? state.sessTitle : state.breakTitle} timer={state.currentTimer}/>
@@ -106,7 +110,7 @@ const Clock = (props) => {
   return (<div id="clock">
     <p id="timer-label">{props.title}</p>
     <p id="time-left">{props.timer[0].toString().padStart(2,0)}:{props.timer[1].toString().padStart(2,0)}</p>
-    <audio id="beep" src="./alarmSFX/ClockTower.wav"></audio>
+    <audio id="beep" src="https://github.com/DrantDumani/Web-Projects-2021/blob/main/js_clock/public/alarmSFX/ClockTower.wav?raw=true"></audio>
   </div>)
 }
 

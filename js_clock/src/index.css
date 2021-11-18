@@ -7,7 +7,7 @@ html {
 body {
   margin: 0 auto;
   font-family: 'Zen Antique', serif;
-  background: linear-gradient(rgba(29,29,29,0.90), rgba(29,29,29,0.90)), url("../src/img_assets/majora_wallpaper.jpg") no-repeat center center fixed;
+  background: linear-gradient(rgba(29,29,29,0.90), rgba(29,29,29,0.90)), url("https://raw.githubusercontent.com/DrantDumani/Web-Projects-2021/main/js_clock/src/img_assets/majora_wallpaper.jpg") no-repeat center center fixed;
   background-size: cover;
   color: var(--color);
 }
