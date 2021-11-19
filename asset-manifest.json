@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Web-Projects-2021/js_clock/static/css/main.21ff6551.chunk.css",
+    "main.js": "/Web-Projects-2021/js_clock/static/js/main.b4f654d2.chunk.js",
+    "main.js.map": "/Web-Projects-2021/js_clock/static/js/main.b4f654d2.chunk.js.map",
+    "runtime-main.js": "/Web-Projects-2021/js_clock/static/js/runtime-main.7ca8eb94.js",
+    "runtime-main.js.map": "/Web-Projects-2021/js_clock/static/js/runtime-main.7ca8eb94.js.map",
+    "static/js/2.911da173.chunk.js": "/Web-Projects-2021/js_clock/static/js/2.911da173.chunk.js",
+    "static/js/2.911da173.chunk.js.map": "/Web-Projects-2021/js_clock/static/js/2.911da173.chunk.js.map",
+    "index.html": "/Web-Projects-2021/js_clock/index.html",
+    "static/css/main.21ff6551.chunk.css.map": "/Web-Projects-2021/js_clock/static/css/main.21ff6551.chunk.css.map",
+    "static/js/2.911da173.chunk.js.LICENSE.txt": "/Web-Projects-2021/js_clock/static/js/2.911da173.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7ca8eb94.js",
+    "static/js/2.911da173.chunk.js",
+    "static/css/main.21ff6551.chunk.css",
+    "static/js/main.b4f654d2.chunk.js"
+  ]
+}
